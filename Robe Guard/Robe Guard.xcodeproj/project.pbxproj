@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1F92827F39E0559D7EF4854D /* libPods-Robe Guard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CAE6D92CE6B997D1E920F3 /* libPods-Robe Guard.a */; };
+		4854C30B1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4854C30A1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m */; };
+		4854C30E1AC9555600DC3312 /* RBGTagListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4854C30D1AC9555600DC3312 /* RBGTagListCollectionViewCell.m */; };
+		4854C3191AC96BBD00DC3312 /* NSObject+RBGUpdateState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4854C3181AC96BBD00DC3312 /* NSObject+RBGUpdateState.m */; };
+		4854C31C1AC97ED200DC3312 /* NSNumber+RBGDoAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4854C31B1AC97ED200DC3312 /* NSNumber+RBGDoAction.m */; };
 		488353CD1AC6AF6300FEE3A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 488353CC1AC6AF6300FEE3A5 /* main.m */; };
 		488353F61AC6B10A00FEE3A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488353F41AC6B10A00FEE3A5 /* Images.xcassets */; };
 		488353F71AC6B10A00FEE3A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488353F51AC6B10A00FEE3A5 /* LaunchScreen.xib */; };
 		488353FA1AC6B11800FEE3A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 488353F91AC6B11800FEE3A5 /* AppDelegate.m */; };
+		488353FD1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488353FC1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard */; };
+		488354001AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 488353FF1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m */; };
+		4883540A1AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488354091AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m */; };
+		4883540D1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4883540C1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m */; };
 		E7DD33EE100CC796A3C51978 /* libPods-Robe GuardTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22A1FA123B9018748B36CB7 /* libPods-Robe GuardTests.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +36,14 @@
 /* Begin PBXFileReference section */
 		28CAE6D92CE6B997D1E920F3 /* libPods-Robe Guard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Robe Guard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC8E5AD3D00F82D94FE3166 /* Pods-Robe GuardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe GuardTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe GuardTests/Pods-Robe GuardTests.release.xcconfig"; sourceTree = "<group>"; };
+		4854C3091AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagListCollectionViewCellRuler.h; sourceTree = "<group>"; };
+		4854C30A1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagListCollectionViewCellRuler.m; sourceTree = "<group>"; };
+		4854C30C1AC9555600DC3312 /* RBGTagListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagListCollectionViewCell.h; sourceTree = "<group>"; };
+		4854C30D1AC9555600DC3312 /* RBGTagListCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagListCollectionViewCell.m; sourceTree = "<group>"; };
+		4854C3171AC96BBD00DC3312 /* NSObject+RBGUpdateState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RBGUpdateState.h"; sourceTree = "<group>"; };
+		4854C3181AC96BBD00DC3312 /* NSObject+RBGUpdateState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RBGUpdateState.m"; sourceTree = "<group>"; };
+		4854C31A1AC97ED200DC3312 /* NSNumber+RBGDoAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+RBGDoAction.h"; sourceTree = "<group>"; };
+		4854C31B1AC97ED200DC3312 /* NSNumber+RBGDoAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+RBGDoAction.m"; sourceTree = "<group>"; };
 		488353C71AC6AF6300FEE3A5 /* Robe Guard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Robe Guard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488353CB1AC6AF6300FEE3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488353CC1AC6AF6300FEE3A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,6 +53,13 @@
 		488353F51AC6B10A00FEE3A5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		488353F81AC6B11800FEE3A5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		488353F91AC6B11800FEE3A5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		488353FC1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RBGTagSelectionStoryboard.storyboard; sourceTree = "<group>"; };
+		488353FE1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagSelectionStoryboard.h; sourceTree = "<group>"; };
+		488353FF1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagSelectionStoryboard.m; sourceTree = "<group>"; };
+		488354081AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagListCollectionViewController.h; sourceTree = "<group>"; };
+		488354091AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagListCollectionViewController.m; sourceTree = "<group>"; };
+		4883540B1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagListCollectionViewModel.h; sourceTree = "<group>"; };
+		4883540C1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagListCollectionViewModel.m; sourceTree = "<group>"; };
 		653AB71D66F0E262CBAE682D /* Pods-Robe Guard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.debug.xcconfig"; sourceTree = "<group>"; };
 		70458080DA2AD706817466EC /* Pods-Robe Guard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.release.xcconfig"; sourceTree = "<group>"; };
 		9E3CA8979B08A4AF8E13DB3B /* Pods-Robe GuardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe GuardTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe GuardTests/Pods-Robe GuardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +104,17 @@
 				E22A1FA123B9018748B36CB7 /* libPods-Robe GuardTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4854C3161AC96B9300DC3312 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				4854C3171AC96BBD00DC3312 /* NSObject+RBGUpdateState.h */,
+				4854C3181AC96BBD00DC3312 /* NSObject+RBGUpdateState.m */,
+				4854C31A1AC97ED200DC3312 /* NSNumber+RBGDoAction.h */,
+				4854C31B1AC97ED200DC3312 /* NSNumber+RBGDoAction.m */,
+			);
+			path = categories;
 			sourceTree = "<group>";
 		};
 		488353BE1AC6AF6300FEE3A5 = {
@@ -134,10 +168,39 @@
 		488353F31AC6AFF500FEE3A5 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				4854C3161AC96B9300DC3312 /* categories */,
+				488353FB1AC6B4BF00FEE3A5 /* tags selection */,
 				488353F81AC6B11800FEE3A5 /* AppDelegate.h */,
 				488353F91AC6B11800FEE3A5 /* AppDelegate.m */,
 			);
 			path = sources;
+			sourceTree = "<group>";
+		};
+		488353FB1AC6B4BF00FEE3A5 /* tags selection */ = {
+			isa = PBXGroup;
+			children = (
+				488354011AC6CB6C00FEE3A5 /* tag list view */,
+				488353FC1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard */,
+				488353FE1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.h */,
+				488353FF1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m */,
+			);
+			name = "tags selection";
+			path = "tag selection";
+			sourceTree = "<group>";
+		};
+		488354011AC6CB6C00FEE3A5 /* tag list view */ = {
+			isa = PBXGroup;
+			children = (
+				488354081AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.h */,
+				488354091AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m */,
+				4883540B1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.h */,
+				4883540C1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m */,
+				4854C3091AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.h */,
+				4854C30A1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m */,
+				4854C30C1AC9555600DC3312 /* RBGTagListCollectionViewCell.h */,
+				4854C30D1AC9555600DC3312 /* RBGTagListCollectionViewCell.m */,
+			);
+			path = "tag list view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				488353F71AC6B10A00FEE3A5 /* LaunchScreen.xib in Resources */,
+				488353FD1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard in Resources */,
 				488353F61AC6B10A00FEE3A5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,8 +370,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4883540D1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m in Sources */,
+				4854C31C1AC97ED200DC3312 /* NSNumber+RBGDoAction.m in Sources */,
+				4854C30B1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m in Sources */,
+				4854C30E1AC9555600DC3312 /* RBGTagListCollectionViewCell.m in Sources */,
 				488353FA1AC6B11800FEE3A5 /* AppDelegate.m in Sources */,
+				488354001AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m in Sources */,
 				488353CD1AC6AF6300FEE3A5 /* main.m in Sources */,
+				4883540A1AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m in Sources */,
+				4854C3191AC96BBD00DC3312 /* NSObject+RBGUpdateState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

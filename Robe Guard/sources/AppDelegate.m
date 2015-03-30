@@ -12,11 +12,26 @@
 
 @end
 
+#import "RBGTagSelectionStoryboard.h"
+#import "RBGTagListCollectionViewController.h"
+
+#import "RBGTagListCollectionViewModel.h"
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    RBGTagSelectionStoryboard* sb = [RBGTagSelectionStoryboard new];
+    
+    RBGTagListCollectionViewController* vc = [sb instantiateTagListViewController];
+    vc.viewModel = [RBGTagListCollectionViewModel newTestingViewModel];
+    
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
