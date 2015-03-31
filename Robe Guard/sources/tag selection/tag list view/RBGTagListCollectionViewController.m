@@ -10,6 +10,8 @@
 #import "RBGTagListCollectionViewModel.h"
 #import "RBGTagSelectionStoryboard.h"
 
+#import "RBGTagListCollectionViewLayout.h"
+
 #import "RBGTagListCollectionViewCellRuler.h"
 #import "RBGTagListCollectionViewCell.h"
 
@@ -42,7 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     [self.collectionView
      rac_liftSelector:@selector(reloadData)
      withSignalOfArguments:[RACObserve(self, viewModel.tags) mapReplace:[RACTuple new]]];
@@ -72,10 +74,11 @@
 #pragma mark <UICollectionViewDelegate>
 
 - (CGSize) collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
+                   layout:(RBGTagListCollectionViewLayout *)collectionViewLayout
    sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.cellRuler cellSizeForViewModel:self.viewModel.tags[indexPath.row]];
+    return [self.cellRuler cellSizeForViewModel:self.viewModel.tags[indexPath.row]
+                                 boundedByWidth:collectionViewLayout.maximumWidth];
 }
 
 @end

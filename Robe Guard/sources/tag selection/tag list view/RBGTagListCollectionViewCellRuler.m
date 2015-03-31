@@ -45,11 +45,15 @@ CGSize measureCell(RBGTagListCollectionViewCell* cell)
 }
 
 - (CGSize)cellSizeForViewModel:(RBGTagListCollectionCellViewModel *)viewModel
+                boundedByWidth:(CGFloat)maxWidth
 {
     [self.cell prepareForReuse];
     self.cell.viewModel = viewModel;
     
-    return measureCell(self.cell);
+    CGSize optimalSize = measureCell(self.cell);
+    optimalSize.width = MIN(optimalSize.width, maxWidth);
+    
+    return optimalSize;
 }
 
 @end

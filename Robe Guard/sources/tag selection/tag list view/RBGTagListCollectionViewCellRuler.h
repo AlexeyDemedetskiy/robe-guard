@@ -14,6 +14,7 @@
 + (instancetype)newWithMetricCellNib:(UINib*)cellNib;
 
 - (CGSize)defaultCellSize;
-- (CGSize)cellSizeForViewModel:(RBGTagListCollectionCellViewModel*)viewModel;
+- (CGSize)cellSizeForViewModel:(RBGTagListCollectionCellViewModel*)viewModel
+                boundedByWidth:(CGFloat)maxWidth;
 
 @end
