@@ -1,22 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WO9-AQ-oPH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rTD-NO-0aB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DgD-e7-b6U">
+            <objects>
+                <navigationController id="rTD-NO-0aB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bYm-4v-8z8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MBC-hd-Uyr" kind="relationship" relationship="rootViewController" id="EBW-0C-llg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPs-a4-Xcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-783" y="168"/>
+        </scene>
+        <!--Select tags-->
+        <scene sceneID="VmU-6L-bTC">
+            <objects>
+                <viewController id="MBC-hd-Uyr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lNV-cV-hfK"/>
+                        <viewControllerLayoutGuide type="bottom" id="eS1-Ur-hO4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VF5-lx-F8h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5un-4w-Skg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="WO9-AQ-oPH" kind="embed" id="aYz-t9-D3Q"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eS1-Ur-hO4" firstAttribute="top" secondItem="5un-4w-Skg" secondAttribute="bottom" id="TDy-9S-i57"/>
+                            <constraint firstItem="5un-4w-Skg" firstAttribute="leading" secondItem="VF5-lx-F8h" secondAttribute="leadingMargin" constant="-16" id="rYB-BE-BG8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5un-4w-Skg" secondAttribute="trailing" constant="-16" id="wMo-7q-FCe"/>
+                            <constraint firstItem="5un-4w-Skg" firstAttribute="top" secondItem="lNV-cV-hfK" secondAttribute="bottom" id="yuj-iP-tbL"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Select tags" id="nsd-it-G9F">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="lo4-ql-Xcg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5U-Mt-jlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="168"/>
+        </scene>
         <!--Tag List Collection View Controller-->
         <scene sceneID="URO-6v-at3">
             <objects>
                 <collectionViewController storyboardIdentifier="tag list collection view" id="WO9-AQ-oPH" customClass="RBGTagListCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1wI-86-7lY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HRl-m2-Nvb" customClass="RBGTagListCollectionViewLayout">
                             <size key="itemSize" width="89" height="38"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.robe-guard.tag-list.cell" id="vnO-SB-OFn" customClass="RBGTagListCollectionViewCell">
@@ -52,19 +105,16 @@
                             <outlet property="delegate" destination="WO9-AQ-oPH" id="Yut-me-AOU"/>
                         </connections>
                     </collectionView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="collectionView" destination="1wI-86-7lY" id="d7r-3B-7mu"/>
                         <outlet property="flowLayout" destination="HRl-m2-Nvb" id="n6g-O1-fDZ"/>
+                        <outlet property="viewModel" destination="H9g-sT-QHK" id="2qM-lz-fsJ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7e-YU-fNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="H9g-sT-QHK" customClass="RBGTagListCollectionViewModel"/>
             </objects>
-            <point key="canvasLocation" x="123" y="302"/>
+            <point key="canvasLocation" x="150" y="168"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

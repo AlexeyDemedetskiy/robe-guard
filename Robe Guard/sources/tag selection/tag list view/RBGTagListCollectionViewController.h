@@ -11,6 +11,6 @@
 @class RBGTagListCollectionViewModel;
 @interface RBGTagListCollectionViewController : UICollectionViewController
 
-@property (nonatomic, strong) RBGTagListCollectionViewModel* viewModel;
+@property (nonatomic, strong) IBOutlet RBGTagListCollectionViewModel* viewModel;
 
 @end

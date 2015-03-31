@@ -26,8 +26,7 @@
     
     RBGTagSelectionStoryboard* sb = [RBGTagSelectionStoryboard new];
     
-    RBGTagListCollectionViewController* vc = [sb instantiateTagListViewController];
-    vc.viewModel = [RBGTagListCollectionViewModel newTestingViewModel];
+    RBGTagListCollectionViewController* vc = [sb instantiateInitialViewController];
     
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];

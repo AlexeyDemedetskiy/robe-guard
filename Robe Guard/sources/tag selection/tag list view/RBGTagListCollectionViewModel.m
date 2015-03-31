@@ -84,6 +84,11 @@
               ]];
 }
 
+- (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
+{
+    return [self.class newTestingViewModel];
+}
+
 @end
 
 @implementation RBGTagListCollectionCellViewModel

@@ -12,4 +12,7 @@
 
 @property (nonatomic, readonly) CGFloat maximumWidth;
 
+@property (nonatomic, readonly) NSString* inputViewKind;
+@property (nonatomic, assign) CGFloat minimumInputWidth;
+
 @end

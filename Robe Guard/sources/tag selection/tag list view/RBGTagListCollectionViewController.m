@@ -44,7 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    [self.collectionView registerClass:[UICollectionReusableView class]
+            forSupplementaryViewOfKind:@"com.robe-guard.tag-selection.input"
+                   withReuseIdentifier:@"com.robe-guard.tag-selection.input"];
+    
     [self.collectionView
      rac_liftSelector:@selector(reloadData)
      withSignalOfArguments:[RACObserve(self, viewModel.tags) mapReplace:[RACTuple new]]];
@@ -54,6 +58,11 @@
 }
 
 #pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -68,7 +77,27 @@
              forIndexPath:indexPath]
             rbg_update:^(RBGTagListCollectionViewCell* cell) {
                 cell.viewModel = self.viewModel.tags[indexPath.row];
+                [cell addSubview:[UITextField rbg_newWithState:^(UITextField* x) {
+                    
+                }]];
             }];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:@"com.robe-guard.tag-selection.input"]) {
+        return [[collectionView
+                 dequeueReusableSupplementaryViewOfKind:@"com.robe-guard.tag-selection.input"
+                 withReuseIdentifier:@"com.robe-guard.tag-selection.input"
+                 forIndexPath:indexPath]
+                rbg_update:^(UICollectionReusableView* view) {
+                    view.backgroundColor = [UIColor redColor];
+                }];
+    }
+    
+    return nil;
 }
 
 #pragma mark <UICollectionViewDelegate>
