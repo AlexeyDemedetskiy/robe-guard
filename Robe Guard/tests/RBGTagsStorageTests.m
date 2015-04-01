@@ -22,6 +22,8 @@
 
 - (void)setUp
 {
+    [super setUp];
+    
     @autoreleasepool {
         self.testObject = [RBGTagsStorage new];
     }
@@ -30,6 +32,8 @@
 - (void)tearDown
 {
     self.testObject = nil;
+    
+    [super tearDown];
 }
 
 - (void)testInitialization
@@ -46,18 +50,6 @@
     XCTAssertEqualObjects(self.testObject.allTags, @[tag]);
     XCTAssertThrows([self.testObject addTag:tag]);
     XCTAssertThrows([self.testObject addTag:nil]);
-}
-
-- (void)testRemoveTag
-{
-    XCTAssertThrows([self.testObject removeTag:nil]);
-    
-    RBGTag* tag = [RBGTag newTagWithTitle:@"iOS"];
-    [self.testObject addTag:tag];
-    [self.testObject removeTag:tag];
-    XCTAssertEqualObjects(self.testObject.allTags, @[]);
-    XCTAssertThrows([self.testObject removeTag:tag]);
-    XCTAssertThrows([self.testObject removeTag:nil]);
 }
 
 - (void)testAllTags

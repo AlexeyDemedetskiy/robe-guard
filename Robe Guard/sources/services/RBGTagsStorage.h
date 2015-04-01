@@ -12,7 +12,6 @@
 @interface RBGTagsStorage : NSObject
 
 - (void)addTag:(RBGTag*)tag;
-- (void)removeTag:(RBGTag*)tag;
 
 /// Returns all registered tags
 ///

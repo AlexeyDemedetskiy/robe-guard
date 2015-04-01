@@ -1,13 +1,13 @@
 //
-//  RBGObjectsStorage.m
+//  RBGObject.h
 //  Robe Guard
 //
 //  Created by Kostya Bychkov on 4/1/15.
 //  Copyright (c) 2015 DAloG ltd. All rights reserved.
 //
 
-#import "RBGObjectsStorage.h"
+#import <Foundation/Foundation.h>
 
-@implementation RBGObjectsStorage
+@interface RBGObject : NSObject
 
 @end

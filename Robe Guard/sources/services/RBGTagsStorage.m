@@ -39,15 +39,6 @@
     [self.tags addObject:tag];
 }
 
-- (void)removeTag:(RBGTag*)tag
-{
-    NSParameterAssert(tag != nil);
-    NSAssert([self.tags containsObject:tag],
-             @"Tag you are trying to remove is not in the storage. Tag: %@", tag);
-    
-    [self.tags removeObject:tag];
-}
-
 - (NSArray*)allTags
 {
     return self.tags.allObjects;

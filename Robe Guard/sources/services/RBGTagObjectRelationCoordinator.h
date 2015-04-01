@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RBGTagObjectRelation : NSObject
-
-@end
-
 @interface RBGTagObjectRelationCoordinator : NSObject
 
 @end

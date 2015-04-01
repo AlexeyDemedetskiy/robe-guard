@@ -32,6 +32,9 @@
 		CFA5E69A1ACC3EB4001E8F08 /* RBGTag.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E6991ACC3EB4001E8F08 /* RBGTag.m */; };
 		CFA5E69B1ACC3EB4001E8F08 /* RBGTag.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E6991ACC3EB4001E8F08 /* RBGTag.m */; };
 		CFA5E69D1ACC4231001E8F08 /* RBGTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E69C1ACC4231001E8F08 /* RBGTagTests.m */; };
+		CFA5E6A01ACC491B001E8F08 /* RBGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E69F1ACC491B001E8F08 /* RBGObject.m */; };
+		CFA5E6A11ACC491B001E8F08 /* RBGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E69F1ACC491B001E8F08 /* RBGObject.m */; };
+		CFA5E6A31ACC4A4A001E8F08 /* RBGObjectsStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E6A21ACC4A4A001E8F08 /* RBGObjectsStorageTests.m */; };
 		E7DD33EE100CC796A3C51978 /* libPods-Robe GuardTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22A1FA123B9018748B36CB7 /* libPods-Robe GuardTests.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +92,9 @@
 		CFA5E6981ACC3EB4001E8F08 /* RBGTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTag.h; sourceTree = "<group>"; };
 		CFA5E6991ACC3EB4001E8F08 /* RBGTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTag.m; sourceTree = "<group>"; };
 		CFA5E69C1ACC4231001E8F08 /* RBGTagTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagTests.m; sourceTree = "<group>"; };
+		CFA5E69E1ACC491B001E8F08 /* RBGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGObject.h; sourceTree = "<group>"; };
+		CFA5E69F1ACC491B001E8F08 /* RBGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGObject.m; sourceTree = "<group>"; };
+		CFA5E6A21ACC4A4A001E8F08 /* RBGObjectsStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGObjectsStorageTests.m; sourceTree = "<group>"; };
 		E22A1FA123B9018748B36CB7 /* libPods-Robe GuardTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Robe GuardTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +188,7 @@
 			children = (
 				CFA5E6951ACC2952001E8F08 /* RBGTagsStorageTests.m */,
 				CFA5E69C1ACC4231001E8F08 /* RBGTagTests.m */,
+				CFA5E6A21ACC4A4A001E8F08 /* RBGObjectsStorageTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -255,6 +262,8 @@
 			children = (
 				CFA5E6981ACC3EB4001E8F08 /* RBGTag.h */,
 				CFA5E6991ACC3EB4001E8F08 /* RBGTag.m */,
+				CFA5E69E1ACC491B001E8F08 /* RBGObject.h */,
+				CFA5E69F1ACC491B001E8F08 /* RBGObject.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 				4854C30B1AC953A700DC3312 /* RBGTagListCollectionViewCellRuler.m in Sources */,
 				4854C30E1AC9555600DC3312 /* RBGTagListCollectionViewCell.m in Sources */,
 				488353FA1AC6B11800FEE3A5 /* AppDelegate.m in Sources */,
+				CFA5E6A01ACC491B001E8F08 /* RBGObject.m in Sources */,
 				488354001AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m in Sources */,
 				48C535391ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m in Sources */,
 				488353CD1AC6AF6300FEE3A5 /* main.m in Sources */,
@@ -448,8 +458,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA5E6A31ACC4A4A001E8F08 /* RBGObjectsStorageTests.m in Sources */,
 				CFA5E6961ACC2952001E8F08 /* RBGTagsStorageTests.m in Sources */,
 				CFA5E68C1ACC1E55001E8F08 /* RBGObjectsStorage.m in Sources */,
+				CFA5E6A11ACC491B001E8F08 /* RBGObject.m in Sources */,
 				CFA5E69D1ACC4231001E8F08 /* RBGTagTests.m in Sources */,
 				CFA5E69B1ACC3EB4001E8F08 /* RBGTag.m in Sources */,
 				CFA5E6881ACC1E2E001E8F08 /* RBGTagsStorage.m in Sources */,

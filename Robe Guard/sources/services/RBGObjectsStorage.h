@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RBGObject : NSObject
-
-@end
-
+@class RBGObject;
 @interface RBGObjectsStorage : NSObject
+
+- (void)addObject:(RBGObject*)anObject;
+- (void)removeObject:(RBGObject*)anObject;
+
+/// Returns all registered objects
+///
+/// @return [RBGObject]
+- (NSArray*)allObjects;
 
 @end

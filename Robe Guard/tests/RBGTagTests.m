@@ -13,41 +13,23 @@
 
 @interface RBGTagTests : XCTestCase
 
-@property RBGTag* testObject;
-
 @end
 
 @implementation RBGTagTests
 
-- (void)setUp {
-    [super setUp];
-    
-    @autoreleasepool {
-        self.testObject = [RBGTag newTagWithTitle:@"iOS"];
-    }
-}
-
-- (void)tearDown {
-    self.testObject = nil;
-    
-    [super tearDown];
-}
-
-- (void)testInitialization {
-    XCTAssertEqualObjects(self.testObject.title, @"iOS");
+- (void)testCreation {
+    XCTAssertThrows([RBGTag newTagWithTitle:nil]);
+    XCTAssertThrows([RBGTag newTagWithTitle:@""]);
+    XCTAssertEqualObjects([RBGTag newTagWithTitle:@"iOS"].title, @"iOS");
 }
 
 - (void)testIdentity
 {
-    XCTAssertThrows([self.testObject isEqual:nil]);
-    XCTAssertThrows([self.testObject isEqualToTag:nil]);
+    XCTAssertEqualObjects(<#expression1#>, <#expression2, ...#>)
     
     XCTAssertEqualObjects(self.testObject, [RBGTag newTagWithTitle:@"iOS"]);
     XCTAssertFalse([self.testObject isEqualToTag:[RBGTag newTagWithTitle:@"Android"]]);
     XCTAssertTrue([self.testObject isEqualToTag:[RBGTag newTagWithTitle:@"iOS"]]);
-    
-    XCTAssertFalse(self.testObject.hash == [RBGTag newTagWithTitle:@"Android"].hash);
-    XCTAssertTrue(self.testObject.hash == [RBGTag newTagWithTitle:@"iOS"].hash);
 }
 
 @end

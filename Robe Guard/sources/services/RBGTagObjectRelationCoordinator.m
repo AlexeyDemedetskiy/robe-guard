@@ -9,10 +9,10 @@
 #import "RBGTagObjectRelationCoordinator.h"
 
 @class RBGTag, RBGObject;
-@interface RBGTagObjectRelation()
+@interface RBGTagObjectRelation : NSObject
 
-@property RBGTag* relatedTag;
-@property RBGObject* relatedObject;
+@property (readonly) RBGTag* tag;
+@property (readonly) RBGObject* object;
 
 @end
 
