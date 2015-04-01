@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@interface RBGObject : NSObject
+
+@end
+
 @interface RBGObjectsStorage : NSObject
 
 @end

@@ -8,6 +8,20 @@
 
 #import "RBGTagObjectRelationCoordinator.h"
 
+@class RBGTag, RBGObject;
+@interface RBGTagObjectRelation()
+
+@property RBGTag* relatedTag;
+@property RBGObject* relatedObject;
+
+@end
+
+@implementation RBGTagObjectRelation
+
+@end
+
+
+
 @implementation RBGTagObjectRelationCoordinator
 
 @end

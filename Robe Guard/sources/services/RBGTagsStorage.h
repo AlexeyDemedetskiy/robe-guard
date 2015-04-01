@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class RBGTag;
 @interface RBGTagsStorage : NSObject
+
+- (void)addTag:(RBGTag*)tag;
+- (void)removeTag:(RBGTag*)tag;
+
+/// Returns all registered tags
+///
+/// @return [RBGTag]
+- (NSArray*)allTags;
 
 @end

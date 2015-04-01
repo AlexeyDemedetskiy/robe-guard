@@ -10,4 +10,10 @@
 
 @interface RBGTag : NSObject
 
+@property (readonly) NSString* title;
+
++ (instancetype)newTagWithTitle:(NSString*)title;
+
+- (BOOL)isEqualToTag:(RBGTag*)tag;
+
 @end

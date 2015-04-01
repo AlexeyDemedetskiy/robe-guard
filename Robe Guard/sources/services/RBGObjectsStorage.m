@@ -8,6 +8,14 @@
 
 #import "RBGObjectsStorage.h"
 
+
+
+@implementation RBGObject
+
+@end
+
+
+
 @implementation RBGObjectsStorage
 
 @end
