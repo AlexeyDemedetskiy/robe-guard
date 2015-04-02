@@ -22,6 +22,10 @@
 		4883540D1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4883540C1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m */; };
 		48C535391ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C535381ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m */; };
 		48C5353C1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C5353B1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m */; };
+		CF3269F01ACD616900153A51 /* RBGDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3269EF1ACD616900153A51 /* RBGDataService.m */; };
+		CF3269F11ACD616900153A51 /* RBGDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3269EF1ACD616900153A51 /* RBGDataService.m */; };
+		CF3269F41ACD629400153A51 /* RBGObjectUpdateContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3269F31ACD629400153A51 /* RBGObjectUpdateContext.m */; };
+		CF3269F51ACD629400153A51 /* RBGObjectUpdateContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3269F31ACD629400153A51 /* RBGObjectUpdateContext.m */; };
 		CFA5E6871ACC1E2E001E8F08 /* RBGTagsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E6861ACC1E2E001E8F08 /* RBGTagsStorage.m */; };
 		CFA5E6881ACC1E2E001E8F08 /* RBGTagsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E6861ACC1E2E001E8F08 /* RBGTagsStorage.m */; };
 		CFA5E68B1ACC1E55001E8F08 /* RBGObjectsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5E68A1ACC1E55001E8F08 /* RBGObjectsStorage.m */; };
@@ -84,6 +88,10 @@
 		653AB71D66F0E262CBAE682D /* Pods-Robe Guard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.debug.xcconfig"; sourceTree = "<group>"; };
 		70458080DA2AD706817466EC /* Pods-Robe Guard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.release.xcconfig"; sourceTree = "<group>"; };
 		9E3CA8979B08A4AF8E13DB3B /* Pods-Robe GuardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe GuardTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe GuardTests/Pods-Robe GuardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CF3269EE1ACD616900153A51 /* RBGDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGDataService.h; sourceTree = "<group>"; };
+		CF3269EF1ACD616900153A51 /* RBGDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGDataService.m; sourceTree = "<group>"; };
+		CF3269F21ACD629400153A51 /* RBGObjectUpdateContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGObjectUpdateContext.h; sourceTree = "<group>"; };
+		CF3269F31ACD629400153A51 /* RBGObjectUpdateContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGObjectUpdateContext.m; sourceTree = "<group>"; };
 		CFA5E6851ACC1E2E001E8F08 /* RBGTagsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagsStorage.h; sourceTree = "<group>"; };
 		CFA5E6861ACC1E2E001E8F08 /* RBGTagsStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagsStorage.m; sourceTree = "<group>"; };
 		CFA5E6891ACC1E55001E8F08 /* RBGObjectsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGObjectsStorage.h; sourceTree = "<group>"; };
@@ -259,6 +267,10 @@
 				CFA5E68A1ACC1E55001E8F08 /* RBGObjectsStorage.m */,
 				CFA5E68D1ACC1EA7001E8F08 /* RBGTagObjectRelationCoordinator.h */,
 				CFA5E68E1ACC1EA7001E8F08 /* RBGTagObjectRelationCoordinator.m */,
+				CF3269EE1ACD616900153A51 /* RBGDataService.h */,
+				CF3269EF1ACD616900153A51 /* RBGDataService.m */,
+				CF3269F21ACD629400153A51 /* RBGObjectUpdateContext.h */,
+				CF3269F31ACD629400153A51 /* RBGObjectUpdateContext.m */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -452,10 +464,12 @@
 				CFA5E6A01ACC491B001E8F08 /* RBGObject.m in Sources */,
 				488354001AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m in Sources */,
 				48C535391ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m in Sources */,
+				CF3269F01ACD616900153A51 /* RBGDataService.m in Sources */,
 				488353CD1AC6AF6300FEE3A5 /* main.m in Sources */,
 				4883540A1AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m in Sources */,
 				4854C3191AC96BBD00DC3312 /* NSObject+RBGUpdateState.m in Sources */,
 				CFA5E6871ACC1E2E001E8F08 /* RBGTagsStorage.m in Sources */,
+				CF3269F41ACD629400153A51 /* RBGObjectUpdateContext.m in Sources */,
 				48C5353C1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA5E6A31ACC4A4A001E8F08 /* RBGObjectsStorageTests.m in Sources */,
+				CF3269F11ACD616900153A51 /* RBGDataService.m in Sources */,
 				CFA5E6961ACC2952001E8F08 /* RBGTagsStorageTests.m in Sources */,
 				CFA5E68C1ACC1E55001E8F08 /* RBGObjectsStorage.m in Sources */,
 				CFA5E6A11ACC491B001E8F08 /* RBGObject.m in Sources */,
@@ -473,6 +488,7 @@
 				CFA5E6A71ACD3D4A001E8F08 /* RBGTagObjectRelationCoordinatorTests.m in Sources */,
 				CFA5E69B1ACC3EB4001E8F08 /* RBGTag.m in Sources */,
 				CFA5E6881ACC1E2E001E8F08 /* RBGTagsStorage.m in Sources */,
+				CF3269F51ACD629400153A51 /* RBGObjectUpdateContext.m in Sources */,
 				CFA5E6901ACC1EA7001E8F08 /* RBGTagObjectRelationCoordinator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
