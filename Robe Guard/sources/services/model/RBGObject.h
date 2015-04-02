@@ -10,4 +10,10 @@
 
 @interface RBGObject : NSObject
 
+@property (readonly) NSString* title;
+
++ (instancetype)newObjectWithTitle:(NSString*)title;
+
+- (BOOL)isEqualToObject:(RBGObject*)object;
+
 @end

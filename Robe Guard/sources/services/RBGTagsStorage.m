@@ -33,15 +33,16 @@
 - (void)addTag:(RBGTag*)tag
 {
     NSParameterAssert(tag != nil);
+    NSParameterAssert(tag.title.length > 0);
     NSAssert(![self.tags containsObject:tag],
              @"Tag you are trying to add has already been added to storage. Tag: %@", tag);
     
     [self.tags addObject:tag];
 }
 
-- (NSArray*)allTags
+- (NSSet*)allTags
 {
-    return self.tags.allObjects;
+    return self.tags.copy;
 }
 
 @end

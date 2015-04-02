@@ -14,54 +14,32 @@
 
 @interface RBGTagsStorageTests : XCTestCase
 
-@property RBGTagsStorage* testObject;
-
 @end
 
 @implementation RBGTagsStorageTests
 
-- (void)setUp
+- (void)testTagsManagement
 {
-    [super setUp];
+    RBGTagsStorage* testObject = [RBGTagsStorage new];
     
-    @autoreleasepool {
-        self.testObject = [RBGTagsStorage new];
-    }
-}
-
-- (void)tearDown
-{
-    self.testObject = nil;
+    NSMutableSet* tags = [NSMutableSet new];
     
-    [super tearDown];
-}
-
-- (void)testInitialization
-{
-    XCTAssertEqualObjects(self.testObject.allTags, @[]);
-}
-
-- (void)testAddTag
-{
-    XCTAssertThrows([self.testObject addTag:nil]);
+    XCTAssertEqualObjects(testObject.allTags, tags);
+    XCTAssertThrows([testObject addTag:nil]);
+    XCTAssertThrows([testObject addTag:[RBGTag newTagWithTitle:@""]]);
     
     RBGTag* tag = [RBGTag newTagWithTitle:@"iOS"];
-    [self.testObject addTag:tag];
-    XCTAssertEqualObjects(self.testObject.allTags, @[tag]);
-    XCTAssertThrows([self.testObject addTag:tag]);
-    XCTAssertThrows([self.testObject addTag:nil]);
-}
-
-- (void)testAllTags
-{
-    RBGTag* tag = [RBGTag newTagWithTitle:@"iOS"];
-    [self.testObject addTag:tag];
-    XCTAssertEqualObjects(self.testObject.allTags, @[tag]);
+    [testObject addTag:tag];
+    [tags addObject:tag];
+    
+    XCTAssertEqualObjects(testObject.allTags, tags);
+    XCTAssertThrows([testObject addTag:tag]);
     
     RBGTag* tag1 = [RBGTag newTagWithTitle:@"OS X"];
-    [self.testObject addTag:tag1];
-    NSArray* tags = @[tag, tag1];
-    XCTAssertEqualObjects(self.testObject.allTags, tags);
+    [testObject addTag:tag1];
+    [tags addObject:tag1];
+    
+    XCTAssertEqualObjects(testObject.allTags, tags);
 }
 
 @end

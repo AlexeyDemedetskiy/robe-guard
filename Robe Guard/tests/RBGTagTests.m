@@ -25,11 +25,8 @@
 
 - (void)testIdentity
 {
-    XCTAssertEqualObjects(<#expression1#>, <#expression2, ...#>)
-    
-    XCTAssertEqualObjects(self.testObject, [RBGTag newTagWithTitle:@"iOS"]);
-    XCTAssertFalse([self.testObject isEqualToTag:[RBGTag newTagWithTitle:@"Android"]]);
-    XCTAssertTrue([self.testObject isEqualToTag:[RBGTag newTagWithTitle:@"iOS"]]);
+    XCTAssertNotEqualObjects([RBGTag newTagWithTitle:@"iOS"], [RBGTag newTagWithTitle:@"Android"]);
+    XCTAssertEqualObjects([RBGTag newTagWithTitle:@"iOS"], [RBGTag newTagWithTitle:@"iOS"]);
 }
 
 @end

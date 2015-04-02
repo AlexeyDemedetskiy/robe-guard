@@ -20,21 +20,20 @@
 + (instancetype)newTagWithTitle:(NSString*)title
 {
     return [self rbg_newWithState:^(RBGTag* tag) {
+        NSCParameterAssert(title.length != 0);
         tag.title = title;
     }];
 }
 
 - (BOOL)isEqual:(id)object
 {
-    NSParameterAssert(object != nil);
-    
-    return ([object isKindOfClass:[self class]] && [self isEqualToTag:object]);
+    return ((self == object) ||
+            ([object isKindOfClass:[self class]] &&
+            [self isEqualToTag:object]));
 }
 
 - (BOOL)isEqualToTag:(RBGTag*)tag
 {
-    NSParameterAssert(tag != nil);
-    
     return [tag.title isEqualToString:self.title];
 }
 

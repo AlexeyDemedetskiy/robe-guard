@@ -14,46 +14,32 @@
 
 @interface RBGObjectsStorageTests : XCTestCase
 
-@property RBGObjectsStorage* testObject;
-
 @end
 
 @implementation RBGObjectsStorageTests
 
-- (void)setUp {
-    [super setUp];
-    
-    @autoreleasepool {
-        self.testObject = [RBGObjectsStorage new];
-    }
-}
-
-- (void)tearDown {
-    self.testObject = nil;
-    
-    [super tearDown];
-}
-
-- (void)testInitialization
+- (void)testObjectsManagament
 {
-    XCTAssertEqualObjects(self.testObject.allObjects, @[]);
-}
-
-- (void)testAdd
-{
-    XCTAssertThrows([self.testObject addObject:nil]);
+    RBGObjectsStorage* testObject = [RBGObjectsStorage new];
     
-    RBGObject* obj = [RBGObject new];
+    NSMutableSet* objs = [NSMutableSet new];
     
-}
-
-- (void)testRemove
-{
+    XCTAssertEqualObjects(testObject.allObjects, objs);
+    XCTAssertThrows([testObject addObject:nil]);
+    XCTAssertThrows([testObject addObject:[RBGObject newObjectWithTitle:nil]]);
     
-}
-
-- (void)testAll
-{
+    RBGObject* obj1 = [RBGObject newObjectWithTitle:@"iOS Article"];
+    [testObject addObject:obj1];
+    [objs addObject:obj1];
+    
+    XCTAssertEqualObjects([testObject allObjects], objs);
+    XCTAssertThrows([testObject addObject:obj1]);
+    
+    RBGObject* obj2 = [RBGObject newObjectWithTitle:@"Math Article"];
+    [testObject addObject:obj2];
+    [objs addObject:obj2];
+    
+    XCTAssertEqualObjects(testObject.allObjects, objs);
     
 }
 

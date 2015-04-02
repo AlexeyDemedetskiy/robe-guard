@@ -16,6 +16,6 @@
 /// Returns all registered tags
 ///
 /// @return [RBGTag]
-- (NSArray*)allTags;
+- (NSSet*)allTags;
 
 @end

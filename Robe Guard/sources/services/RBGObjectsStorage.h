@@ -12,11 +12,10 @@
 @interface RBGObjectsStorage : NSObject
 
 - (void)addObject:(RBGObject*)anObject;
-- (void)removeObject:(RBGObject*)anObject;
 
 /// Returns all registered objects
 ///
 /// @return [RBGObject]
-- (NSArray*)allObjects;
+- (NSSet*)allObjects;
 
 @end
