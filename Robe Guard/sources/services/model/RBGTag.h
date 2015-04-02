@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Entity representing RGBObject metadata
+ */
 @interface RBGTag : NSObject
 
 @property (readonly) NSString* title;

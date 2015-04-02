@@ -15,7 +15,7 @@
 
 /// Returns all registered objects
 ///
-/// @return [RBGObject]
+/// @return NSSet of objects: RBGObject
 - (NSSet*)allObjects;
 
 @end

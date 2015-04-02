@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Entity representing some data
+ */
 @interface RBGObject : NSObject
 
 @property (readonly) NSString* title;
