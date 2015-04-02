@@ -29,7 +29,6 @@
 @end
 
 
-
 @implementation RBGTagListCollectionViewModel
 
 + (instancetype)newWithTags:(NSArray *)tags

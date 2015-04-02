@@ -22,6 +22,7 @@
 		4883540D1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4883540C1AC6CF6000FEE3A5 /* RBGTagListCollectionViewModel.m */; };
 		48C535391ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C535381ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m */; };
 		48C5353C1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C5353B1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m */; };
+		48C5353F1ACBEE84001C3AB9 /* RBGTagSelectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C5353E1ACBEE84001C3AB9 /* RBGTagSelectionModel.m */; };
 		E7DD33EE100CC796A3C51978 /* libPods-Robe GuardTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22A1FA123B9018748B36CB7 /* libPods-Robe GuardTests.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		48C535381ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagListCollectionViewLayout.m; sourceTree = "<group>"; };
 		48C5353A1ACAB532001C3AB9 /* NSArray+RBGHighOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RBGHighOrder.h"; sourceTree = "<group>"; };
 		48C5353B1ACAB532001C3AB9 /* NSArray+RBGHighOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RBGHighOrder.m"; sourceTree = "<group>"; };
+		48C5353D1ACBEE84001C3AB9 /* RBGTagSelectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBGTagSelectionModel.h; sourceTree = "<group>"; };
+		48C5353E1ACBEE84001C3AB9 /* RBGTagSelectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBGTagSelectionModel.m; sourceTree = "<group>"; };
 		653AB71D66F0E262CBAE682D /* Pods-Robe Guard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.debug.xcconfig"; sourceTree = "<group>"; };
 		70458080DA2AD706817466EC /* Pods-Robe Guard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe Guard.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe Guard/Pods-Robe Guard.release.xcconfig"; sourceTree = "<group>"; };
 		9E3CA8979B08A4AF8E13DB3B /* Pods-Robe GuardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robe GuardTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Robe GuardTests/Pods-Robe GuardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				488353FC1AC6B52000FEE3A5 /* RBGTagSelectionStoryboard.storyboard */,
 				488353FE1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.h */,
 				488353FF1AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m */,
+				48C5353D1ACBEE84001C3AB9 /* RBGTagSelectionModel.h */,
+				48C5353E1ACBEE84001C3AB9 /* RBGTagSelectionModel.m */,
 			);
 			name = "tags selection";
 			path = "tag selection";
@@ -387,6 +392,7 @@
 				488353FA1AC6B11800FEE3A5 /* AppDelegate.m in Sources */,
 				488354001AC6B53C00FEE3A5 /* RBGTagSelectionStoryboard.m in Sources */,
 				48C535391ACAA699001C3AB9 /* RBGTagListCollectionViewLayout.m in Sources */,
+				48C5353F1ACBEE84001C3AB9 /* RBGTagSelectionModel.m in Sources */,
 				488353CD1AC6AF6300FEE3A5 /* main.m in Sources */,
 				4883540A1AC6CEB000FEE3A5 /* RBGTagListCollectionViewController.m in Sources */,
 				4854C3191AC96BBD00DC3312 /* NSObject+RBGUpdateState.m in Sources */,

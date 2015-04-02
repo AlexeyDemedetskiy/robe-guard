@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 
+@class RBGTagListCollectionCellViewModel;
 @interface RBGTagListCollectionViewModel : NSObject
 
-+ (instancetype)newTestingViewModel;
+@property (nonatomic, readonly) NSArray* availablTags;
+@property (nonatomic, readonly) NSArray* selectedTags;
 
-@property (nonatomic, readonly) NSArray* tags;
+- (void)selectTagViewModel:(RBGTagListCollectionCellViewModel*)viewModel;
 
 @end
 
