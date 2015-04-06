@@ -12,4 +12,3 @@ target 'Robe GuardTests' do
 	pod 'OCMock'
 	pod 'KIF'
 end
-

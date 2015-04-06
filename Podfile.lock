@@ -1,7 +1,7 @@
 PODS:
-  - KIF (3.2.0):
-    - KIF/XCTest (= 3.2.0)
-  - KIF/XCTest (3.2.0)
+  - KIF (3.2.1):
+    - KIF/XCTest (= 3.2.1)
+  - KIF/XCTest (3.2.1)
   - OCMock (3.1.2)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
@@ -17,8 +17,8 @@ DEPENDENCIES:
   - ReactiveCocoa (~> 2.4.7)
 
 SPEC CHECKSUMS:
-  KIF: 958b7b47bf36c72711cb5c9260542a522a5892b1
+  KIF: ef1691e54e1d969c3b4fd0b5b56a3d7ddf37f216
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
   ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.1
