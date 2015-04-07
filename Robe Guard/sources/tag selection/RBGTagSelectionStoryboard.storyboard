@@ -65,22 +65,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HRl-m2-Nvb" customClass="RBGTagListCollectionViewLayout">
-                            <size key="itemSize" width="89" height="38"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="I6F-bD-Fp0" customClass="RBGTagListCollectionViewLayout">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="itemSpacing">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="minimumInputSize">
+                                    <size key="value" width="40" height="40"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="delegate" destination="WO9-AQ-oPH" id="zwq-pI-wfM"/>
+                            </connections>
+                        </collectionViewLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.robe-guard.tag-list.cell" id="vnO-SB-OFn" customClass="RBGTagListCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="89" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="89" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnh-WT-mWV">
-                                            <rect key="frame" x="10" y="5" width="69" height="28"/>
+                                            <rect key="frame" x="10" y="5" width="44" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -95,6 +105,7 @@
                                     <constraint firstItem="pnh-WT-mWV" firstAttribute="leading" secondItem="vnO-SB-OFn" secondAttribute="leading" constant="10" id="see-fL-TQU"/>
                                     <constraint firstAttribute="trailing" secondItem="pnh-WT-mWV" secondAttribute="trailing" constant="10" id="teL-k5-U2J"/>
                                 </constraints>
+                                <size key="customSize" width="64" height="38"/>
                                 <connections>
                                     <outlet property="textLabel" destination="pnh-WT-mWV" id="qKU-gw-dYr"/>
                                 </connections>
@@ -107,7 +118,6 @@
                     </collectionView>
                     <connections>
                         <outlet property="collectionView" destination="1wI-86-7lY" id="d7r-3B-7mu"/>
-                        <outlet property="flowLayout" destination="HRl-m2-Nvb" id="n6g-O1-fDZ"/>
                         <outlet property="viewModel" destination="H9g-sT-QHK" id="2qM-lz-fsJ"/>
                     </connections>
                 </collectionViewController>

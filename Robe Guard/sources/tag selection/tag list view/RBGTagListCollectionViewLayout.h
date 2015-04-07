@@ -8,11 +8,33 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RBGTagListCollectionViewLayout : UICollectionViewFlowLayout
+@class RBGTagListCollectionViewLayout;
+@protocol RBGTagListCollectionViewLayoutDelegate <NSObject>
 
-@property (nonatomic, readonly) CGFloat maximumWidth;
+- (BOOL)
+layout:(RBGTagListCollectionViewLayout *)collectionViewLayout
+shouldInsertInputViewAtSection:(NSUInteger)sectionIndex;
 
-@property (nonatomic, readonly) NSString* inputViewKind;
-@property (nonatomic, assign) CGFloat minimumInputWidth;
+- (CGSize)
+layout:(RBGTagListCollectionViewLayout *)collectionViewLayout
+sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface RBGTagListCollectionViewLayout : UICollectionViewLayout
+
++ (NSString*)inputViewKind;
+@property (readonly) NSString* inputViewKind;
+
+@property (weak) IBOutlet id<RBGTagListCollectionViewLayoutDelegate> delegate;
+
+@property IBInspectable UIEdgeInsets sectionInsets;
+@property IBInspectable CGFloat itemSpacing;
+@property IBInspectable CGFloat lineSpacing;
+
+@property IBInspectable CGSize minimumInputSize;
+
+/// Contains maximum allowed element width;
+@property (readonly) CGFloat maximumWidth;
 
 @end

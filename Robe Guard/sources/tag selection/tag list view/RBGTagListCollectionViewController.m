@@ -19,12 +19,51 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+@interface RBGTagListInputView : UICollectionReusableView<UITextFieldDelegate>
+
+@property UITextField* inputField;
+
+@end
+
+@implementation RBGTagListInputView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self == nil) return nil;
+    
+    self.inputField = [UITextField rbg_newWithState:^(UITextField* textField) {
+        textField.translatesAutoresizingMaskIntoConstraints = NO;
+        textField.delegate = self;
+        
+        [self addSubview:textField];
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[input]|"
+                                                                     options:0
+                                                                     metrics:nil
+                                                                       views:@{@"input":textField}]];
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[input]|"
+                                                                     options:0
+                                                                     metrics:nil
+                                                                       views:@{@"input":textField}]];
+    }];
+    
+    return self;
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
+@end
 
 
-
-@interface RBGTagListCollectionViewController ()<UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic, weak) IBOutlet UICollectionViewFlowLayout* flowLayout;
+@interface RBGTagListCollectionViewController ()<RBGTagListCollectionViewLayoutDelegate>
 
 @property (nonatomic, strong) RBGTagListCollectionViewCellRuler* cellRuler;
 
@@ -45,8 +84,8 @@
 {
     [super viewDidLoad];
     
-    [self.collectionView registerClass:[UICollectionReusableView class]
-            forSupplementaryViewOfKind:@"com.robe-guard.tag-selection.input"
+    [self.collectionView registerClass:[RBGTagListInputView class]
+            forSupplementaryViewOfKind:[RBGTagListCollectionViewLayout inputViewKind]
                    withReuseIdentifier:@"com.robe-guard.tag-selection.input"];
     
     [self.collectionView
@@ -66,7 +105,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.viewModel.tags count];
+    return [@[ @1, @([self.viewModel.tags count])][section] integerValue];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -77,9 +116,6 @@
              forIndexPath:indexPath]
             rbg_update:^(RBGTagListCollectionViewCell* cell) {
                 cell.viewModel = self.viewModel.tags[indexPath.row];
-                [cell addSubview:[UITextField rbg_newWithState:^(UITextField* x) {
-                    
-                }]];
             }];
 }
 
@@ -87,13 +123,13 @@
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath
 {
-    if ([kind isEqualToString:@"com.robe-guard.tag-selection.input"]) {
+    if ([kind isEqualToString:[RBGTagListCollectionViewLayout inputViewKind]]) {
         return [[collectionView
-                 dequeueReusableSupplementaryViewOfKind:@"com.robe-guard.tag-selection.input"
+                 dequeueReusableSupplementaryViewOfKind:[RBGTagListCollectionViewLayout inputViewKind]
                  withReuseIdentifier:@"com.robe-guard.tag-selection.input"
                  forIndexPath:indexPath]
-                rbg_update:^(UICollectionReusableView* view) {
-                    view.backgroundColor = [UIColor redColor];
+                rbg_update:^(UIView* x) {
+                    // TODO: Link to view model
                 }];
     }
     
@@ -102,12 +138,15 @@
 
 #pragma mark <UICollectionViewDelegate>
 
-- (CGSize) collectionView:(UICollectionView *)collectionView
-                   layout:(RBGTagListCollectionViewLayout *)collectionViewLayout
-   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)layout:(RBGTagListCollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self.cellRuler cellSizeForViewModel:self.viewModel.tags[indexPath.row]
                                  boundedByWidth:collectionViewLayout.maximumWidth];
+}
+
+- (BOOL)layout:(RBGTagListCollectionViewLayout *)collectionViewLayout shouldInsertInputViewAtSection:(NSUInteger)sectionIndex
+{
+    return (sectionIndex == 0);
 }
 
 @end

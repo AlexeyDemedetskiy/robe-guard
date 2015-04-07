@@ -8,92 +8,143 @@
 
 #import "RBGTagListCollectionViewLayout.h"
 
-@implementation RBGTagListCollectionViewLayout {
-    CGFloat _inputAddedHeight;
+#import "NSNumber+RBGDoAction.h"
+
+@interface RBGTagListCollectionViewLayout ()
+
+@property NSArray* allAttributes;
+@property NSDictionary* attributesMap;
+
+@end
+
+@implementation RBGTagListCollectionViewLayout
+
++ (NSString *)inputViewKind
+{
+    return @"com.robe-guard.tag-selection.input";
 }
 
-- (void)awakeFromNib
+- (NSString *)inputViewKind
 {
-    /* Hack row alignment options */ {
-        /*{
-            UIFlowLayoutCommonRowHorizontalAlignmentKey = 3;
-            UIFlowLayoutLastRowHorizontalAlignmentKey = 0;
-            UIFlowLayoutRowVerticalAlignmentKey = 1;
-        }*/
-        NSMutableDictionary* rowOptions = [[self valueForKey:@"_rowAlignmentsOptionsDictionary"]
-                                           mutableCopy];
-        rowOptions[@"UIFlowLayoutCommonRowHorizontalAlignmentKey"] = @0; // Align left options.
-        [self setValue:rowOptions.copy forKey:@"_rowAlignmentsOptionsDictionary"];
-    }
-    
-    _inputViewKind = @"com.robe-guard.tag-selection.input";
-    _minimumInputWidth = 40;
+    return [self.class inputViewKind];
 }
+
+#pragma mark UICollectionViewLayoutSubclassHook
 
 - (void)prepareLayout
 {
     _maximumWidth = (self.collectionView.bounds.size.width -
-                     self.sectionInset.left -
-                     self.sectionInset.right);
+                     self.sectionInsets.left -
+                     self.sectionInsets.right);
     
-    [super prepareLayout];
+    self.allAttributes = [self generateAllAttributes];
+    NSArray* indexPaths = [self.allAttributes valueForKey:@"indexPath"];
+    
+    self.attributesMap = [NSDictionary dictionaryWithObjects:self.allAttributes forKeys:indexPaths];
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+- (NSArray*)generateAllAttributes
 {
-    _inputAddedHeight = 0;
+    NSMutableArray* attributes = [NSMutableArray new];
     
-    NSMutableArray* attributes = [super layoutAttributesForElementsInRect:rect].mutableCopy;
-    for (UICollectionViewLayoutAttributes* attribute in attributes.copy) {
-        /* update vertical position */ {
-            CGRect attributeFrame = attribute.frame;
-            attributeFrame.origin.y += _inputAddedHeight;
-            attribute.frame = attributeFrame;
-        }
-
-        
-        if (attribute.indexPath.row == [self.collectionView numberOfItemsInSection:attribute.indexPath.section] - 1)
-        {
-            UICollectionViewLayoutAttributes* inputAttributes =
-            [UICollectionViewLayoutAttributes
-             layoutAttributesForSupplementaryViewOfKind:self.inputViewKind
-             withIndexPath:[NSIndexPath
-                            indexPathForItem:0
-                            inSection:attribute.indexPath.section]];
-            
-            
-            
-            CGRect currentFrame = attribute.frame;
-            
-            currentFrame.origin.x = CGRectGetMaxX(attribute.frame) + self.minimumInteritemSpacing;
-            
-            CGFloat availableWidth = (self.collectionView.bounds.size.width -
-                                      self.sectionInset.right -
-                                      currentFrame.origin.x);
-            if (availableWidth > self.minimumInputWidth) {
-                currentFrame.size.width = availableWidth;
-            } else {
-                currentFrame.size.width = self.maximumWidth;
-                currentFrame.origin.x = self.sectionInset.left;
-                currentFrame.origin.y = CGRectGetMaxY(attribute.frame) + self.minimumLineSpacing;
-                
-                _inputAddedHeight += CGRectGetMaxY(currentFrame) - CGRectGetMaxY(attribute.frame);
-            }
-            
-            inputAttributes.frame = currentFrame;
-            
-            [attributes addObject:inputAttributes];
-        }
-    }
+    CGFloat __block nextLineTop = self.sectionInsets.top;
+    
+    [@([self.collectionView numberOfSections]) rbg_do:^(NSUInteger section)
+     {
+         CGFloat __block newX = self.sectionInsets.left;
+         CGFloat __block newY = nextLineTop;
+         
+         [@([self.collectionView numberOfItemsInSection:section]) rbg_do:^(NSUInteger item)
+          {
+              NSIndexPath* indexPath = [NSIndexPath indexPathForItem:item inSection:section];
+              
+              UICollectionViewLayoutAttributes* itemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+              [attributes addObject:itemAttributes];
+              
+              CGFloat remainingWidth = self.collectionView.bounds.size.width - self.sectionInsets.right - newX;
+              CGSize itemSize = [self.delegate layout:self sizeForItemAtIndexPath:indexPath];
+              
+              if (itemSize.width > remainingWidth)
+              { // Move to next line
+                  newX = self.sectionInsets.left;
+                  newY = nextLineTop;
+              }
+              
+              itemAttributes.frame = (CGRect){
+                  .origin = {
+                      .x = newX,
+                      .y = newY,
+                  },
+                  .size = itemSize,
+              };
+              
+              newX = CGRectGetMaxX(itemAttributes.frame) + self.itemSpacing;
+              newY = CGRectGetMinY(itemAttributes.frame);
+              nextLineTop = MAX(nextLineTop, CGRectGetMaxY(itemAttributes.frame) + self.lineSpacing);
+          }];
+         
+         if ([self.delegate layout:self shouldInsertInputViewAtSection:section])
+         {
+             NSIndexPath* indexPath = [NSIndexPath indexPathForItem:[self.collectionView numberOfItemsInSection:section]
+                                                          inSection:section];
+             UICollectionViewLayoutAttributes* inputViewAttrubutes = [UICollectionViewLayoutAttributes
+                                                                      layoutAttributesForSupplementaryViewOfKind:self.inputViewKind
+                                                                      withIndexPath:indexPath];
+             [attributes addObject:inputViewAttrubutes];
+             
+             CGFloat remainingWidth = self.collectionView.bounds.size.width - self.sectionInsets.right - newX;
+             if (remainingWidth < self.minimumInputSize.width)
+             {
+                 newX = self.sectionInsets.left;
+                 newY = nextLineTop;
+                 
+                 // reset remaining width to maximum width
+                 remainingWidth = self.collectionView.bounds.size.width - self.sectionInsets.right - newX;
+             }
+             
+             inputViewAttrubutes.frame = (CGRect){
+                 .origin = {
+                     .x = newX,
+                     .y = newY,
+                 },
+                 .size = {
+                     .width = remainingWidth,
+                     .height = self.minimumInputSize.height,
+                 },
+             };
+             
+             nextLineTop = MAX(nextLineTop, CGRectGetMaxY(inputViewAttrubutes.frame) + self.lineSpacing);
+         }
+     }];
     
     return attributes.copy;
 }
 
-- (CGSize)collectionViewContentSize
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect;
 {
-    CGSize size = [super collectionViewContentSize];
-    size.height += _inputAddedHeight;
-    return size;
+    return self.allAttributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return self.attributesMap[indexPath];
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind
+                                                                     atIndexPath:(NSIndexPath *)indexPath;
+{
+    return self.attributesMap[indexPath];
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds;
+{
+    return NO;
+}
+
+- (CGSize)collectionViewContentSize;
+{
+    return CGSizeMake(self.collectionView.bounds.size.width,
+                      CGRectGetMaxY([[self.allAttributes lastObject] frame]) + self.sectionInsets.bottom);
 }
 
 @end
